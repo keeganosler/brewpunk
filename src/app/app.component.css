@@ -3,6 +3,8 @@
     padding:10px;
     color:white;
     text-align:center;
+    padding:40px;
+    font-family:Raleway;
 }
 
 .topnav a {
@@ -14,6 +16,8 @@
     flex: 100%;
     background-color: red;
     padding: 20px;
+    padding:40px;
+    font-family:Raleway;
   }
 
   .bottom-nav {
@@ -21,4 +25,5 @@
     color:white;
     text-align:center;
     padding:40px;
+    font-family:Raleway;
 }
