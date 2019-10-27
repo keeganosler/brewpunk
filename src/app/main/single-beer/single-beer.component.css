@@ -1,0 +1,9 @@
+.col {
+    flex:1;
+    width:50%;
+}
+
+.col-container {
+    display:flex;
+    width:100%;
+}

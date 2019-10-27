@@ -8,19 +8,17 @@ import { HttpService } from 'src/app/http.service';
 })
 export class RandomBeerComponent implements OnInit {
 
+  randomBeerIsLoaded = false
+
   constructor(private httpService: HttpService) { }
 
   ngOnInit() {
-    this.httpService.onGetRandomBeer().subscribe(
-      res => {
-        console.log(res)
-      }
-    ) 
   }
 
   onRefresh() {
     this.httpService.onGetRandomBeer().subscribe(
       res => {
+        this.randomBeerIsLoaded = true
         console.log(res)
       }
     )
