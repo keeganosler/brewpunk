@@ -14,7 +14,6 @@
 .main {   
     -ms-flex: 100%; /* IE10 */
     flex: 100%;
-    background-color: red;
     padding: 20px;
     padding:40px;
     font-family:Raleway;
