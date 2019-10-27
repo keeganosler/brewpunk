@@ -10,6 +10,11 @@ export class RandomBeerComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log('ng on init works!')
+  }
+
+  onRefresh() {
+    console.log("on refresh works!")
   }
 
 }
