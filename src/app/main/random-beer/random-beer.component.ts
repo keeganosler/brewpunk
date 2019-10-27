@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from 'src/app/http.service';
 
 @Component({
   selector: 'app-random-beer',
@@ -7,14 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RandomBeerComponent implements OnInit {
 
-  constructor() { }
+  constructor(private httpService: HttpService) { }
 
   ngOnInit() {
     console.log('ng on init works!')
   }
 
   onRefresh() {
-    console.log("on refresh works!")
+    this.httpService.onGetRandomBeer().subscribe(
+      res => {
+        console.log(res)
+      }
+    )
   }
 
 }
