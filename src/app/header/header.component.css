@@ -1,0 +1,15 @@
+a.nav-link:link
+{
+   color: lightgrey;
+   text-decoration: none;
+}
+a.nav-link:visited
+{
+   color: darkgray;
+   text-decoration: none;
+}
+a.nav-link:hover
+{
+   color: white;
+   text-decoration: none;
+}
