@@ -13,6 +13,7 @@ import { RandomBeerComponent } from './main/random-beer/random-beer.component';
 import { SearchBeersComponent } from './main/search-beers/search-beers.component';
 import { CustomizeBeerComponent } from './main/customize-beer/customize-beer.component'
 import { HttpService } from './http.service';
+import { SingleBeerComponent } from './main/single-beer/single-beer.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HttpService } from './http.service';
     MainComponent,
     RandomBeerComponent,
     SearchBeersComponent,
-    CustomizeBeerComponent
+    CustomizeBeerComponent,
+    SingleBeerComponent
   ],
   imports: [
     BrowserModule,

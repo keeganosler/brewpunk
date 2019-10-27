@@ -11,7 +11,11 @@ export class RandomBeerComponent implements OnInit {
   constructor(private httpService: HttpService) { }
 
   ngOnInit() {
-    console.log('ng on init works!')
+    this.httpService.onGetRandomBeer().subscribe(
+      res => {
+        console.log(res)
+      }
+    ) 
   }
 
   onRefresh() {
