@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from 'src/app/http.service';
+import { ToSingleBeerService } from '../services/to-single-beer.service';
 
 @Component({
   selector: 'app-random-beer',
@@ -11,7 +12,7 @@ export class RandomBeerComponent implements OnInit {
   randomBeerIsLoaded = false
   randomBeer: any[]
 
-  constructor(private httpService: HttpService) { }
+  constructor(private httpService: HttpService, private toSingleBeer: ToSingleBeerService) { }
 
   ngOnInit() {
   }
@@ -21,6 +22,7 @@ export class RandomBeerComponent implements OnInit {
       res => {
         this.randomBeerIsLoaded = true
         this.randomBeer = res[0]
+        this.toSingleBeer.emitBeer(this.randomBeer)
         console.log(res)
       }
     )
