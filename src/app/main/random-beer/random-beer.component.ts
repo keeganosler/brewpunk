@@ -9,6 +9,7 @@ import { HttpService } from 'src/app/http.service';
 export class RandomBeerComponent implements OnInit {
 
   randomBeerIsLoaded = false
+  randomBeer: any[]
 
   constructor(private httpService: HttpService) { }
 
@@ -19,6 +20,7 @@ export class RandomBeerComponent implements OnInit {
     this.httpService.onGetRandomBeer().subscribe(
       res => {
         this.randomBeerIsLoaded = true
+        this.randomBeer = res[0]
         console.log(res)
       }
     )
