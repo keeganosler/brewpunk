@@ -15,6 +15,7 @@ import { SearchBeersComponent } from './main/search-beers/search-beers.component
 import { CustomizeBeerComponent } from './main/customize-beer/customize-beer.component'
 import { HttpService } from './http.service';
 import { SingleBeerComponent } from './main/single-beer/single-beer.component';
+import { ToSingleBeerService } from './main/services/to-single-beer.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import { SingleBeerComponent } from './main/single-beer/single-beer.component';
     MatButtonModule,
     MatGridListModule
   ],
-  providers: [HttpService],
+  providers: [HttpService, ToSingleBeerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

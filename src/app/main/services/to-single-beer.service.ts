@@ -1,20 +1,16 @@
 import { Injectable, Output, EventEmitter } from '@angular/core';
-import { Subject } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ToSingleBeerService {
 
-  @Output() beerSelected = new EventEmitter()
   currentBeer
 
+  @Output() beerSelected: EventEmitter<any[]> = new EventEmitter()
+  
   constructor() { }
 
-  emitBeer(beer) {
-    console.log('service: ', beer)
-    this.currentBeer = beer
-    this.beerSelected.emit(this.currentBeer)
-    console.log('beer1: ', this.currentBeer)
+  sendBeer(beer) {
+    console.log(typeof(beer))
+    this.beerSelected.emit(beer)
   }
 }

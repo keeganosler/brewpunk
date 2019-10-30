@@ -8,15 +8,16 @@ import { ToSingleBeerService } from '../services/to-single-beer.service';
 })
 export class SingleBeerComponent implements OnInit {
 
-  name
-  tagline
+  name: string
+  tagline: string
 
-  constructor(private toSingleBeer: ToSingleBeerService) { }
+  constructor(private toSingleBeerService: ToSingleBeerService) { }
 
   ngOnInit() {
-    this.toSingleBeer.beerSelected.subscribe(
+    console.log('ngonint')
+    this.toSingleBeerService.beerSelected.subscribe(
       res => {
-        console.log('beer2: ', res)
+        console.log(res)
       }
     )
   }
