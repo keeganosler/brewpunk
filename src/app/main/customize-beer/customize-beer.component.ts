@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from 'src/app/http.service';
 
 @Component({
   selector: 'app-customize-beer',
@@ -7,9 +8,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomizeBeerComponent implements OnInit {
 
-  constructor() { }
+  allBeers = []
+  beersToDisplay = []
+
+  constructor(private httpService: HttpService) { }
 
   ngOnInit() {
+    this.httpService.onGetAllBeers().subscribe(
+      (res:any) => {
+        console.log(res)
+        this.allBeers = res
+      }
+    )    
+  }
+
+  toggleABV(e) {
+    console.log('event: ', e)
+    this.beersToDisplay = []
+    for(var beer of this.allBeers) {
+      console.log(beer.abv)
+      if(beer.abv<(e.value+0.25) && beer.abv >(e.value-0.25)){
+        console.log('yes')
+      }
+    }
+
   }
 
 }

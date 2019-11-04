@@ -1,1 +1,17 @@
-<p>customize-beer works!</p>
+<div>
+    Toggle the ABV
+    <mat-slider max=14 min=3 (change)="toggleABV($event)"></mat-slider>
+</div>
+<div>
+    <mat-slider (change)="toggleIBU($event)"></mat-slider>
+</div>
+<div>
+    <mat-slider (change)="toggleEBC($event)"></mat-slider>
+</div>
+<div>
+    <mat-slider (change)="toggleHops($event)"></mat-slider>
+</div>
+<div>
+    <mat-slider (change)="toggleMalt($event)"></mat-slider>
+</div>
+

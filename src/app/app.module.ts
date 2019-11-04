@@ -6,7 +6,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { MainComponent } from './main/main.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatTabsModule } from '@angular/material';
+import { MatTabsModule, MatSliderModule } from '@angular/material';
 import { MatButtonModule } from '@angular/material/button'
 import { MatGridListModule } from '@angular/material/grid-list';
 import { HttpClientModule } from '@angular/common/http';
@@ -34,7 +34,8 @@ import { ToSingleBeerService } from './main/services/to-single-beer.service';
     HttpClientModule,
     MatTabsModule,
     MatButtonModule,
-    MatGridListModule
+    MatGridListModule,
+    MatSliderModule
   ],
   providers: [HttpService, ToSingleBeerService],
   bootstrap: [AppComponent]

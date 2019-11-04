@@ -10,4 +10,8 @@ export class HttpService {
     console.log('here')
     return this.http.get('https://api.punkapi.com/v2/beers/random')
   }
+
+  onGetAllBeers() {
+    return this.http.get('https://api.punkapi.com/v2/beers')
+  }
 }
