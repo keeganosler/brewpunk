@@ -1,17 +1,20 @@
 <div>
     Toggle the ABV
-    <mat-slider max=14 min=3 (change)="toggleABV($event)"></mat-slider>
+    <mat-slider max=14 min=4 (input)="toggleABV($event)"></mat-slider>
 </div>
 <div>
-    <mat-slider (change)="toggleIBU($event)"></mat-slider>
+    Toggle the IBU
+    <mat-slider max=70 min=0 (change)="toggleIBU($event)"></mat-slider>
+</div>
+<div>Toggle the EBC
+    <mat-slider max=80 min=0 (change)="toggleEBC($event)"></mat-slider>
 </div>
 <div>
-    <mat-slider (change)="toggleEBC($event)"></mat-slider>
-</div>
-<div>
+    Toggle the Hops
     <mat-slider (change)="toggleHops($event)"></mat-slider>
 </div>
 <div>
+    Toggle the Malt
     <mat-slider (change)="toggleMalt($event)"></mat-slider>
 </div>
 

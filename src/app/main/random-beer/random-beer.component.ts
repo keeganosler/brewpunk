@@ -20,7 +20,7 @@ export class RandomBeerComponent implements OnInit {
   onRefresh() {
     this.httpService.onGetRandomBeer().subscribe(
       res => {
-
+        
         // console.log('random beer1', res)
         // this.randomBeer = res[0]
         // this.toSingleBeer.emitBeer(this.randomBeer)

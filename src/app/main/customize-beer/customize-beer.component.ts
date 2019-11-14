@@ -18,19 +18,18 @@ export class CustomizeBeerComponent implements OnInit {
       (res:any) => {
         console.log(res)
         this.allBeers = res
+        this.beersToDisplay = res
       }
     )    
   }
 
   toggleABV(e) {
-    console.log('event: ', e)
-    this.beersToDisplay = []
-    for(var beer of this.allBeers) {
-      console.log(beer.abv)
-      if(beer.abv<(e.value+0.25) && beer.abv >(e.value-0.25)){
-        console.log('yes')
+    this.httpService.onToggleBeers('abv_gt', 'abv_lt', e.value-0.25, e.value+0.25).subscribe(
+      (res:any) => {
+        this.beersToDisplay = res
       }
-    }
+    )
+    console.log(this.beersToDisplay)
   }
 
   toggleIBU(e) {
