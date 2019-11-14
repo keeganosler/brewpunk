@@ -1,14 +1,8 @@
-<!-- <div class="col-container">
-    <div class="col">
-        <h1>{{ name }}</h1>
-    </div>
-    <div class="col">
-        <h1>{{ tagline }}</h1>
-    </div>    
-</div> -->
 <br>
 <mat-card>
     <mat-card-title>{{ name }}</mat-card-title>
     <mat-card-subtitle>{{ tagline }}</mat-card-subtitle>
+    <img mat-card-image [src]="img" [alt]="name" height="400" width="300">
+    <mat-card-content></mat-card-content>
 </mat-card>
 <br>

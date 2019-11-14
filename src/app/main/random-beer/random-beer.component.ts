@@ -12,6 +12,7 @@ export class RandomBeerComponent implements OnInit {
   randomBeerIsLoaded = false
   randomBeerName
   randomBeerTagline
+  randomBeerImg
 
   constructor(private httpService: HttpService, private toSingleBeerService: ToSingleBeerService) { }
 
@@ -25,6 +26,8 @@ export class RandomBeerComponent implements OnInit {
         this.randomBeerIsLoaded = true
         this.randomBeerName = res[0].name
         this.randomBeerTagline = res[0].tagline
+        this.randomBeerImg = res[0].image_url
+        console.log(this.randomBeerImg)
       }
     )
   }

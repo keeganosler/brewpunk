@@ -9,6 +9,7 @@ export class SingleBeerComponent implements OnInit {
 
   @Input() name: string
   @Input() tagline: string
+  @Input() img: string
 
   constructor() { }
 
