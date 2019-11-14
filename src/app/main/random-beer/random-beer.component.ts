@@ -14,10 +14,12 @@ export class RandomBeerComponent implements OnInit {
   randomBeerTagline
   randomBeerImg
   randomBeerDesc
+  randomBeerBrewersTips
 
   constructor(private httpService: HttpService, private toSingleBeerService: ToSingleBeerService) { }
 
   ngOnInit() {
+    this.onRefresh()
   }
 
   onRefresh() {
@@ -29,6 +31,7 @@ export class RandomBeerComponent implements OnInit {
         this.randomBeerTagline = res[0].tagline
         this.randomBeerImg = res[0].image_url
         this.randomBeerDesc = res[0].description
+        this.randomBeerBrewersTips = res[0].brewers_tips
         console.log(this.randomBeerImg)
       }
     )

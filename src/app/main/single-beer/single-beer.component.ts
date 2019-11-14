@@ -11,6 +11,7 @@ export class SingleBeerComponent implements OnInit {
   @Input() tagline: string
   @Input() img: string
   @Input() description: string
+  @Input() brewersTips: string
 
   constructor() { }
 
