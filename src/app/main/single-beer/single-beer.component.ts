@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { ToSingleBeerService } from '../services/to-single-beer.service';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-single-beer',
@@ -8,18 +7,13 @@ import { ToSingleBeerService } from '../services/to-single-beer.service';
 })
 export class SingleBeerComponent implements OnInit {
 
-  name: string
-  tagline: string
+  @Input() name: string
+  @Input() tagline: string
 
-  constructor(private toSingleBeerService: ToSingleBeerService) { }
+  constructor() { }
 
   ngOnInit() {
-    console.log('ngonint')
-    this.toSingleBeerService.beerSelected.subscribe(
-      res => {
-        console.log(res)
-      }
-    )
+    console.log(name)
   }
 
 }

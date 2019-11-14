@@ -10,7 +10,8 @@ import { ToSingleBeerService } from '../services/to-single-beer.service';
 export class RandomBeerComponent implements OnInit {
 
   randomBeerIsLoaded = false
-  randomBeer
+  randomBeerName
+  randomBeerTagline
 
   constructor(private httpService: HttpService, private toSingleBeerService: ToSingleBeerService) { }
 
@@ -19,19 +20,11 @@ export class RandomBeerComponent implements OnInit {
 
   onRefresh() {
     this.httpService.onGetRandomBeer().subscribe(
-      res => {
-        
-        // console.log('random beer1', res)
-        // this.randomBeer = res[0]
-        // this.toSingleBeer.emitBeer(this.randomBeer)
-        // this.randomBeerIsLoaded = true
-        // console.log('random beer2:', this.randomBeer)
-        //this.randomBeer = res[0]
-
-        // this.toSingleBeerService.sendBeer(res)
-        // this.randomBeerIsLoaded = true
-
-        
+      (res: any) => {
+        this.randomBeerIsLoaded = true
+        this.randomBeerName = res[0].name
+        console.log(this.randomBeerName)
+        this.randomBeerTagline = res[0].tagline
       }
     )
   }
