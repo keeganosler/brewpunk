@@ -10,6 +10,7 @@ import { MatTabsModule, MatSliderModule } from '@angular/material';
 import { MatButtonModule } from '@angular/material/button'
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
 import { HttpClientModule } from '@angular/common/http';
 import { RandomBeerComponent } from './main/random-beer/random-beer.component';
 import { SearchBeersComponent } from './main/search-beers/search-beers.component';
@@ -37,7 +38,8 @@ import { ToSingleBeerService } from './main/services/to-single-beer.service';
     MatButtonModule,
     MatGridListModule,
     MatSliderModule,
-    MatCardModule
+    MatCardModule,
+    MatDividerModule
   ],
   providers: [HttpService, ToSingleBeerService],
   bootstrap: [AppComponent]

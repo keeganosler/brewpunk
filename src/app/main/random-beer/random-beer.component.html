@@ -1,4 +1,8 @@
-<div *ngIf="randomBeerIsLoaded">
-    <app-single-beer [name]="randomBeerName" [tagline]="randomBeerTagline" [img]="randomBeerImg"></app-single-beer>
+<div class="main-div">
+    <div *ngIf="randomBeerIsLoaded">
+        <app-single-beer [name]="randomBeerName" [tagline]="randomBeerTagline" [img]="randomBeerImg" [description]="randomBeerDesc"></app-single-beer>
+    </div>
+        
 </div>
 <button mat-stroked-button (click)="onRefresh()">Refresh</button>
+
