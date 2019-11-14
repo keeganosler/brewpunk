@@ -58,11 +58,31 @@ export class CustomizeBeerComponent implements OnInit {
   }
 
   toggleHops(e) {
-    console.log('hops', e)
+    for(var beer of this.allBeers) {
+      var hops = beer.ingredients.hops
+      var amountHops = 0
+      for(var hop of hops) {
+        amountHops = amountHops + hop.amount.value
+        
+      }
+      if(amountHops<(e.value+1) && amountHops>(e.value-1)){
+        this.beersToDisplayHops.push(beer)
+      }
+    }
   }
 
   toggleMalt(e) {
-    console.log('malt', e)
+    for(var beer of this.allBeers) {
+      var malts = beer.ingredients.malt
+      var amountMalt = 0
+      for(var malt of malts) {
+        amountMalt = amountMalt + malt.amount.value
+        
+      }
+      if(amountMalt<(e.value+1) && amountMalt>(e.value-1)){
+        this.beersToDisplayMalt.push(beer)
+      }
+    }
   }
 
 }
