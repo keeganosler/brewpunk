@@ -4,17 +4,17 @@
 </div>
 <div>
     Toggle the IBU
-    <mat-slider max=70 min=0 (change)="toggleIBU($event)"></mat-slider>
+    <mat-slider max=70 min=10 (input)="toggleIBU($event)"></mat-slider>
 </div>
 <div>Toggle the EBC
-    <mat-slider max=80 min=0 (change)="toggleEBC($event)"></mat-slider>
+    <mat-slider max=80 min=10 (input)="toggleEBC($event)"></mat-slider>
 </div>
 <div>
     Toggle the Hops
-    <mat-slider (change)="toggleHops($event)"></mat-slider>
+    <mat-slider (input)="toggleHops($event)"></mat-slider>
 </div>
 <div>
     Toggle the Malt
-    <mat-slider (change)="toggleMalt($event)"></mat-slider>
+    <mat-slider (input)="toggleMalt($event)"></mat-slider>
 </div>
 
