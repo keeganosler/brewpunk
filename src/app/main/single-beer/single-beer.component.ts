@@ -13,7 +13,6 @@ export class SingleBeerComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(name)
   }
 
 }
