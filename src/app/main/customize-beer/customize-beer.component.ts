@@ -15,6 +15,9 @@ export class CustomizeBeerComponent implements OnInit {
   beersToDisplayEBC = []
   beersToDisplayHops = []
   beersToDisplayMalt = []
+  abv
+  ebc
+  ibu
 
   constructor(private httpService: HttpService) { }
 
@@ -23,38 +26,36 @@ export class CustomizeBeerComponent implements OnInit {
       (res:any) => {
         console.log(res)
         this.allBeers = res
-        this.beersToDisplay = res
       }
     )    
   }
 
   toggleABV(e) {
-    this.httpService.onToggleBeers('abv_gt', 'abv_lt', e.value-0.25, e.value+0.25).subscribe(
+    this.httpService.onToggleBeers('abv_gt', 'abv_lt', e.value-1, e.value+1).subscribe(
       (res:any) => {
         this.beersToDisplayABV = res
       }
     )
-    console.log(this.beersToDisplayABV)
+    console.log('abv', e.value)
   }
 
   toggleIBU(e) {
-    console.log('ibu', e)
-    this.httpService.onToggleBeers('ibu_gt', 'ibu_lt', e.value-0.25, e.value+0.25).subscribe(
+    this.httpService.onToggleBeers('ibu_gt', 'ibu_lt', e.value-10, e.value+10).subscribe(
       (res:any) => {
+        console.log(res)
         this.beersToDisplayIBU = res
       }
     )
-    console.log(this.beersToDisplayIBU)
+    console.log('ibu', e.value)
   }
 
   toggleEBC(e) {
-    console.log('ebc', e)
-    this.httpService.onToggleBeers('ebc_gt', 'ebc_lt', e.value-0.25, e.value+0.25).subscribe(
+    this.httpService.onToggleBeers('ebc_gt', 'ebc_lt', e.value-10, e.value+10).subscribe(
       (res:any) => {
         this.beersToDisplayEBC = res
       }
     )
-    console.log(this.beersToDisplayEBC)
+    console.log('ebc', e.value)
   }
 
   toggleHops(e) {
@@ -63,12 +64,12 @@ export class CustomizeBeerComponent implements OnInit {
       var amountHops = 0
       for(var hop of hops) {
         amountHops = amountHops + hop.amount.value
-        
       }
       if(amountHops<(e.value+1) && amountHops>(e.value-1)){
         this.beersToDisplayHops.push(beer)
       }
     }
+    console.log('hops', e.value)
   }
 
   toggleMalt(e) {
@@ -83,6 +84,28 @@ export class CustomizeBeerComponent implements OnInit {
         this.beersToDisplayMalt.push(beer)
       }
     }
+    console.log('malt', e.value)
+  }
+
+  onCreate() {
+    console.log(this.beersToDisplayABV)
+    console.log(this.beersToDisplayIBU)
+    console.log(this.beersToDisplayEBC)
+    // for(var beer of this.allBeers) {
+    //   if(this.beersToDisplayABV.includes(beer) && this.beersToDisplayIBU.includes(beer) && this.beersToDisplayEBC.includes(beer)) {
+    //     this.beersToDisplay.push(beer)
+    //   }
+    // }
+    var arrays = this.beersToDisplayABV.concat(this.beersToDisplayEBC, this.beersToDisplayIBU)
+    console.log(arrays)
+    var sortedArrays = arrays.sort(function(a,b) {return (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0);} )
+    console.log(sortedArrays)
+    for(var i=0; i<sortedArrays.length-2; i++) {
+      if((sortedArrays[i].id === sortedArrays[i+1].id) && (sortedArrays[i].id === sortedArrays[i+2].id)) {
+        this.beersToDisplay.push(sortedArrays[i])
+      }
+    }
+    console.log(this.beersToDisplay)
   }
 
 }
