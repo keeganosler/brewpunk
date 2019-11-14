@@ -31,7 +31,22 @@ export class CustomizeBeerComponent implements OnInit {
         console.log('yes')
       }
     }
+  }
 
+  toggleIBU(e) {
+    console.log('ibu', e)
+  }
+
+  toggleEBC(e) {
+    console.log('ebc', e)
+  }
+
+  toggleHops(e) {
+    console.log('hops', e)
+  }
+
+  toggleMalt(e) {
+    console.log('malt', e)
   }
 
 }
