@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { HttpService } from 'src/app/http.service';
 
 @Component({
@@ -22,6 +22,8 @@ export class CustomizeBeerComponent implements OnInit {
   currentBeer
   beerClicked = false
 
+  @Output() clickedBeer = new EventEmitter<boolean>()
+
   //options = ['one', 'two', 'three']
 
   constructor(private httpService: HttpService) { }
@@ -36,6 +38,7 @@ export class CustomizeBeerComponent implements OnInit {
   }
 
   onClick(e) {
+    this.clickedBeer.emit(true)
     this.beerSelected = e.target.textContent
     for(var b of this.beersToDisplay) {
       console.log(b.name)

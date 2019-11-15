@@ -1,7 +1,7 @@
 <div class="main">
     <h2>Need a beer?</h2>
     <mat-tab-group mat-align-tabs="center" [ngStyle]="{'height': mapViewHeight}" (selectedTabChange)="tabChanged($event)">
-        <mat-tab label="Custom Beer Finder"><app-customize-beer></app-customize-beer></mat-tab>
+        <mat-tab label="Custom Beer Finder"><app-customize-beer (clickedBeer)="onSelect2($event)"></app-customize-beer></mat-tab>
         <mat-tab label="Choose a Random Beer"><app-random-beer></app-random-beer></mat-tab>
         <mat-tab label="Search for Beers" ><app-search-beers (selectedBeer)="onSelected($event)"></app-search-beers></mat-tab>
     </mat-tab-group>
