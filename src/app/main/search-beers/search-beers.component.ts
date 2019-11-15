@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { HttpService } from 'src/app/http.service';
 
@@ -13,6 +13,8 @@ export class SearchBeersComponent implements OnInit {
   beers: any
   beerSelected = false
   beer
+
+  @Output() selectedBeer = new EventEmitter<boolean>()
 
   constructor(private httpService: HttpService) { }
 
@@ -34,6 +36,7 @@ export class SearchBeersComponent implements OnInit {
     this.beerSelected = true
     for(var b of this.beers) {
       if(b.name = e.option.value) {
+        this.selectedBeer.emit(this.beerSelected)
         this.beer = b
       }
     }
