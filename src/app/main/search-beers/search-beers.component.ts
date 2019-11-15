@@ -9,9 +9,10 @@ import { HttpService } from 'src/app/http.service';
 })
 export class SearchBeersComponent implements OnInit {
 
-  searchControl = new FormControl();
-  options: string[] = ['One', 'Two', 'Three'];
+  searchControl = new FormControl()
   beers: any
+  beerSelected = false
+  beer
 
   constructor(private httpService: HttpService) { }
 
@@ -24,10 +25,15 @@ export class SearchBeersComponent implements OnInit {
   onSearchBeers(str) {
     this.httpService.onSearchBeers(str).subscribe(
       res => {
-        console.log(res)
         this.beers = res
       }
     )
+  }
+
+  onSelectionChange(e) {
+    this.beerSelected = true
+    this.beer = e.option.value
+    console.log('change: ', e.option.value)
   }
 
 }
