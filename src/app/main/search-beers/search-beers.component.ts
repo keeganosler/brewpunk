@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-search-beers',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search-beers.component.css']
 })
 export class SearchBeersComponent implements OnInit {
+
+  myControl = new FormControl();
+  options: string[] = ['One', 'Two', 'Three'];
 
   constructor() { }
 
