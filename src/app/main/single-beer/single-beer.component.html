@@ -52,6 +52,11 @@
             <mat-expansion-panel-header>
             <mat-panel-title>Method</mat-panel-title>
             </mat-expansion-panel-header>
+            <ul>
+                <li>Fermentation: {{ beer.method.fermentation.temp.value }} degrees {{ beer.method.fermentation.temp.unit}}</li>
+                <li>Mash: {{ beer.method.mash_temp[0].temp.value }} degrees {{ beer.method.mash_temp[0].temp.unit}}</li>
+                <li>Boil Volume: {{ beer.boil_volume.value }} {{ beer.boil_volume.unit }}</li>
+            </ul>
         </mat-expansion-panel>
         <mat-expansion-panel>
             <mat-expansion-panel-header>
