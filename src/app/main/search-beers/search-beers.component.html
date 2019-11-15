@@ -1,9 +1,9 @@
 <form>
     <mat-form-field>
-        <input type="text" placeholder="Start typing the beer name..." aria-label="Number" matInput [matAutocomplete]="auto">
+        <input type="text" placeholder="Type the beer name..." [formControl]="searchControl" matInput [matAutocomplete]="auto" (change)="onSearchBeers($event)">
         <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let option of options" [value]="option">
-                {{option}}
+            <mat-option *ngFor="let beer of beers" [value]="beer">
+                {{ beer.name }}
             </mat-option>
         </mat-autocomplete>
     </mat-form-field>
