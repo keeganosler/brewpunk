@@ -18,6 +18,11 @@ export class CustomizeBeerComponent implements OnInit {
   abv
   ebc
   ibu
+  beerSelected
+  currentBeer
+  beerClicked = false
+
+  //options = ['one', 'two', 'three']
 
   constructor(private httpService: HttpService) { }
 
@@ -28,6 +33,18 @@ export class CustomizeBeerComponent implements OnInit {
         this.allBeers = res
       }
     )    
+  }
+
+  onClick(e) {
+    this.beerSelected = e.target.textContent
+    for(var b of this.beersToDisplay) {
+      console.log(b.name)
+      if(b.name === e.target.textContent) {
+        this.beerClicked = true
+        this.currentBeer = b
+      }
+    }
+    console.log('click', this.currentBeer)
   }
 
   toggleABV(e) {

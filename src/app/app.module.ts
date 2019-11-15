@@ -16,6 +16,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatListModule } from '@angular/material/list';
 import { HttpClientModule } from '@angular/common/http';
 import { RandomBeerComponent } from './main/random-beer/random-beer.component';
 import { SearchBeersComponent } from './main/search-beers/search-beers.component';
@@ -51,7 +52,8 @@ import { ToSingleBeerService } from './main/services/to-single-beer.service';
     MatExpansionModule,
     MatAutocompleteModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatListModule
   ],
   providers: [HttpService, ToSingleBeerService],
   bootstrap: [AppComponent]
