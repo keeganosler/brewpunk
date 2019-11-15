@@ -17,6 +17,8 @@
                     <li><b>srm: </b>{{ beer.srm }}</li>
                     <li><b>Attenuation Level: </b>{{ beer.attenuation_level }}</li>
                     <li><b>First Brewed: </b>{{ beer.first_brewed }}</li>
+                    <li><b>FG</b>{{ beer.target_fg }}</li>
+                    <li><b>OG</b>{{ beer.target_og }}</li>
                 </ul>
             </mat-card-content>
         </div>
@@ -24,12 +26,19 @@
     <br>
     <mat-accordion>
         <mat-expansion-panel>
+        <mat-expansion-panel-header><mat-panel-title>Food Pairings</mat-panel-title></mat-expansion-panel-header>
+            <ul>
+                <li *ngFor="let food of beer.food_pairing">
+                    {{ food }}
+                </li>
+            </ul>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
             <mat-expansion-panel-header>
             <mat-panel-title>Ingredients</mat-panel-title>
             </mat-expansion-panel-header>
             <mat-panel-description><p>For {{ beer.volume.value }} {{ beer.volume.unit }}</p></mat-panel-description>
             <div class="col-container">
-                
                 <div class="col">
                     <b>Hops</b>
                     <ul>
