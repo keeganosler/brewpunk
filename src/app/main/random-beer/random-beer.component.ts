@@ -10,11 +10,6 @@ import { ToSingleBeerService } from '../services/to-single-beer.service';
 export class RandomBeerComponent implements OnInit {
 
   randomBeerIsLoaded = false
-  randomBeerName
-  randomBeerTagline
-  randomBeerImg
-  randomBeerDesc
-  randomBeerBrewersTips
 
   randomBeer
 
@@ -27,15 +22,7 @@ export class RandomBeerComponent implements OnInit {
   onRefresh() {
     this.httpService.onGetRandomBeer().subscribe(
       (res: any) => {
-        console.log(res)
-        this.randomBeerIsLoaded = true
-        this.randomBeerName = res[0].name
-        this.randomBeerTagline = res[0].tagline
-        this.randomBeerImg = res[0].image_url
-        this.randomBeerDesc = res[0].description
-        this.randomBeerBrewersTips = res[0].brewers_tips
         this.randomBeer = res[0]
-        console.log(this.randomBeerImg)
       }
     )
   }
