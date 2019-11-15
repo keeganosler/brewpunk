@@ -105,21 +105,19 @@ export class CustomizeBeerComponent implements OnInit {
   }
 
   onCreate() {
-    console.log(this.beersToDisplayABV)
-    console.log(this.beersToDisplayIBU)
-    console.log(this.beersToDisplayEBC)
-    // for(var beer of this.allBeers) {
-    //   if(this.beersToDisplayABV.includes(beer) && this.beersToDisplayIBU.includes(beer) && this.beersToDisplayEBC.includes(beer)) {
-    //     this.beersToDisplay.push(beer)
-    //   }
-    // }
+    console.log('abv', this.beersToDisplayABV)
+    console.log('ibu', this.beersToDisplayIBU)
+    console.log('ebc', this.beersToDisplayEBC)
     var arrays = this.beersToDisplayABV.concat(this.beersToDisplayEBC, this.beersToDisplayIBU)
-    console.log(arrays)
+    console.log('arrays', arrays)
     var sortedArrays = arrays.sort(function(a,b) {return (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0);} )
-    console.log(sortedArrays)
+    console.log('sorted arrays', sortedArrays)
     for(var i=0; i<sortedArrays.length-2; i++) {
       if((sortedArrays[i].id === sortedArrays[i+1].id) && (sortedArrays[i].id === sortedArrays[i+2].id)) {
-        this.beersToDisplay.push(sortedArrays[i])
+        if(!this.beersToDisplay.includes(sortedArrays[i])) {
+          this.beersToDisplay.push(sortedArrays[i])
+        }
+        
       }
     }
     console.log(this.beersToDisplay)
