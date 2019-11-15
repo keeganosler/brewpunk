@@ -13,6 +13,8 @@ export class SingleBeerComponent implements OnInit {
   @Input() description: string
   @Input() brewersTips: string
 
+  @Input() beer:any
+
   constructor() { }
 
   ngOnInit() {
