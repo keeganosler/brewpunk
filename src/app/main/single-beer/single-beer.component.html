@@ -2,13 +2,23 @@
 <mat-card style="width:500px">
     <mat-card-title>{{ name }}</mat-card-title>
     <mat-card-subtitle>{{ tagline }}</mat-card-subtitle>
+    <mat-card-content><p>{{ description }}</p></mat-card-content>
     <div class="col-container">
         <div class="col">
             <img mat-card-lg-image [src]="img" [alt]="name" width="50%">
-            <mat-card-content><p>other content</p></mat-card-content>
         </div>
         <div class="col">
-            <mat-card-content><p>{{ description }}</p><p><i><b>Brewers Tips:</b><br>{{ brewersTips }}</i></p></mat-card-content>
+            <mat-card-content>
+                <ul>
+                    <li><b>ABV: </b></li>
+                    <li><b>EBC: </b></li>
+                    <li><b>IBU: </b></li>
+                    <li><b>pH: </b></li>
+                    <li><b>srm: </b></li>
+                    <li><b>Attenuation Level: </b></li>
+                    <li><b>First Brewed: </b></li>
+                </ul>
+            </mat-card-content>
         </div>
     </div>
 </mat-card>    
