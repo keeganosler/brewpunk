@@ -22,6 +22,7 @@ export class RandomBeerComponent implements OnInit {
   onRefresh() {
     this.httpService.onGetRandomBeer().subscribe(
       (res: any) => {
+        this.randomBeerIsLoaded = true
         this.randomBeer = res[0]
       }
     )

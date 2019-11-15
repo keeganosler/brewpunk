@@ -32,7 +32,11 @@ export class SearchBeersComponent implements OnInit {
 
   onSelectionChange(e) {
     this.beerSelected = true
-    this.beer = e.option.value
+    for(var b of this.beers) {
+      if(b.name = e.option.value) {
+        this.beer = b
+      }
+    }
   }
 
 }
