@@ -1,1 +1,14 @@
-<p>search-beers works!</p>
+<br>
+<form>
+    <mat-form-field>
+        <input type="text" placeholder="Type the beer name..." [formControl]="searchControl" matInput [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onSelectionChange($event)">
+            <mat-option *ngFor="let beer of beers" [value]="beer.name">
+                {{ beer.name }}
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+</form>
+<div class="main-div" *ngIf="beerSelected">
+    <app-single-beer [beer]="beer"></app-single-beer>
+</div>

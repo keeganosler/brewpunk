@@ -10,28 +10,20 @@ import { ToSingleBeerService } from '../services/to-single-beer.service';
 export class RandomBeerComponent implements OnInit {
 
   randomBeerIsLoaded = false
+
   randomBeer
 
   constructor(private httpService: HttpService, private toSingleBeerService: ToSingleBeerService) { }
 
   ngOnInit() {
+    this.onRefresh()
   }
 
   onRefresh() {
     this.httpService.onGetRandomBeer().subscribe(
-      res => {
-
-        // console.log('random beer1', res)
-        // this.randomBeer = res[0]
-        // this.toSingleBeer.emitBeer(this.randomBeer)
-        // this.randomBeerIsLoaded = true
-        // console.log('random beer2:', this.randomBeer)
-        //this.randomBeer = res[0]
-
-        // this.toSingleBeerService.sendBeer(res)
-        // this.randomBeerIsLoaded = true
-
-        
+      (res: any) => {
+        this.randomBeerIsLoaded = true
+        this.randomBeer = res[0]
       }
     )
   }

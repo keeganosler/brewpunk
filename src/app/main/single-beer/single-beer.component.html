@@ -1,8 +1,78 @@
-<div class="col-container">
-    <div class="col">
-        <h1>{{ name }}</h1>
+<br>
+<mat-card style="width:500px">
+    <mat-card-title>{{ beer.name }}</mat-card-title>
+    <mat-card-subtitle>{{ beer.tagline }}</mat-card-subtitle>
+    <mat-card-content><p>{{ beer.description }}</p></mat-card-content>
+    <div class="col-container">
+        <div class="col">
+            <img mat-card-lg-image [src]="beer.image_url" [alt]="beer.name" width="50%">
+        </div>
+        <div class="col">
+            <mat-card-content>
+                <ul>
+                    <li><b>ABV: </b>{{ beer.abv }}</li>
+                    <li><b>EBC: </b>{{ beer.ebc }}</li>
+                    <li><b>IBU: </b>{{ beer.ibu }}</li>
+                    <li><b>pH: </b>{{ beer.ph }}</li>
+                    <li><b>srm: </b>{{ beer.srm }}</li>
+                    <li><b>Attenuation Level: </b>{{ beer.attenuation_level }}</li>
+                    <li><b>First Brewed: </b>{{ beer.first_brewed }}</li>
+                    <li><b>FG</b>{{ beer.target_fg }}</li>
+                    <li><b>OG</b>{{ beer.target_og }}</li>
+                </ul>
+            </mat-card-content>
+        </div>
     </div>
-    <div class="col">
-        <h1>{{ tagline }}</h1>
-    </div>    
-</div>
+    <br>
+    <mat-accordion>
+        <mat-expansion-panel>
+        <mat-expansion-panel-header><mat-panel-title>Food Pairings</mat-panel-title></mat-expansion-panel-header>
+            <ul>
+                <li *ngFor="let food of beer.food_pairing">
+                    {{ food }}
+                </li>
+            </ul>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+            <mat-panel-title>Ingredients</mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-panel-description><p>For {{ beer.volume.value }} {{ beer.volume.unit }}</p></mat-panel-description>
+            <div class="col-container">
+                <div class="col">
+                    <b>Hops</b>
+                    <ul>
+                        <li *ngFor="let hop of beer.ingredients.hops">
+                            {{ hop.amount.value }} {{ hop.amount.unit }} <i>{{ hop.name }}</i> - {{ hop.attribute }} , add at {{ hop.add }}
+                        </li>                        
+                    </ul>
+                </div>
+                <div class="col">
+                    <b>Malt</b>
+                    <ul>
+                        <li *ngFor="let malt of beer.ingredients.malt">
+                            {{ malt.amount.value }} {{ malt.amount.unit }} <i>{{ malt.name }}</i>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+            <mat-panel-title>Method</mat-panel-title>
+            </mat-expansion-panel-header>
+            <ul>
+                <li>Fermentation: {{ beer.method.fermentation.temp.value }} degrees {{ beer.method.fermentation.temp.unit}}</li>
+                <li>Mash: {{ beer.method.mash_temp[0].temp.value }} degrees {{ beer.method.mash_temp[0].temp.unit}}</li>
+                <li>Boil Volume: {{ beer.boil_volume.value }} {{ beer.boil_volume.unit }}</li>
+            </ul>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+            <mat-panel-title>Brewer's Tips</mat-panel-title>
+            </mat-expansion-panel-header>
+            {{ beer.brewers_tips }}
+        </mat-expansion-panel>
+    </mat-accordion>    
+</mat-card>    
+<br>

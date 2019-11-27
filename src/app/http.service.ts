@@ -14,4 +14,12 @@ export class HttpService {
   onGetAllBeers() {
     return this.http.get('https://api.punkapi.com/v2/beers')
   }
+
+  onToggleBeers(maxParam, minParam, maxNum, minNum) {
+    return this.http.get('https://api.punkapi.com/v2/beers?'+maxParam+'='+maxNum+'&'+minParam+'='+minNum)
+  }
+
+  onSearchBeers(str) {
+    return this.http.get('https://api.punkapi.com/v2/beers?beer_name='+str)
+  }
 }
