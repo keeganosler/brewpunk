@@ -59,4 +59,17 @@ export class CustomizeBeerComponent implements OnInit {
 
   }
 
+  onCreateCustomBeer() {
+    var arrays = this.beersABV.concat(this.beersEBC, this.beersIBU)
+    console.log(arrays)
+    var sortedArrays = arrays.sort(function(a,b) {return (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0);} )
+    console.log(sortedArrays)
+    for(var i=0; i<sortedArrays.length-2; i++) {
+      if((sortedArrays[i].id === sortedArrays[i+1].id) && (sortedArrays[i].id === sortedArrays[i+2].id)) {
+        this.beersToDisplay.push(sortedArrays[i])
+      }
+    }
+    console.log(this.beersToDisplay)
+  }
+
 }

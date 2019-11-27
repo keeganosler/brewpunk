@@ -21,14 +21,13 @@
             <mat-slider (input)="toggleMalt($event)"></mat-slider>
         </div>
         <div>
-            <button mat-stroked-button (click)="onCreate()">Refresh</button>
+            <button mat-stroked-button (click)="onCreateCustomBeer()">Find</button>
         </div>
 
     </div>
     <div class="col">
         <mat-action-list>
-            <button mat-list-item style="width:100%; border:1px solid black;" *ngFor="let beer of beersToDisplay" value="beer" (click)="onClick($event)">{{ beer.name }}</button>                
-
+            <button mat-list-item style="width:100%; border:1px solid black;" *ngFor="let beer of beersToDisplay" value="beer" (click)="onClick($event)">{{ beer.name }}</button>
         </mat-action-list>
     </div>
     <div class="col" *ngIf="beerClicked">
