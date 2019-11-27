@@ -10,6 +10,11 @@ export class CustomizeBeerComponent implements OnInit {
 
   allBeers = []
   beersToDisplay = []
+  beersABV = []
+  beersIBU = []
+  beersEBC = []
+  beersMalt = []
+  beersHops = []
 
   constructor(private httpService: HttpService) { }
 
@@ -23,23 +28,34 @@ export class CustomizeBeerComponent implements OnInit {
   }
 
   toggleABV(e) {
-    console.log('event: ', e)
-    this.beersToDisplay = []
-    for(var beer of this.allBeers) {
-      // console.log(beer.abv)
-      if(beer.abv<(e.value+0.5) && beer.abv >(e.value-0.5)){
-        console.log('yes')
-        if(!this.beersToDisplay.includes(beer)) {
-          this.beersToDisplay.push(beer)
-        }
-        
-      } else {
-        if(this.beersToDisplay.includes(beer)) {
-          this.beersToDisplay.slice(this.beersToDisplay.indexOf(beer), 1)
-        }
+    this.httpService.onToggleBeers('abv_gt', 'abv_lt', e.value-1, e.value+1).subscribe(
+      (res:any) => {
+        this.beersABV = res
       }
-      console.log(this.beersToDisplay)
-    }
+    )
+  }
+
+  toggleIBU(e) {
+    this.httpService.onToggleBeers('ibu_gt', 'ibu_lt', e.value-10, e.value+10).subscribe(
+      (res:any) => {
+        this.beersIBU = res
+      }
+    )
+  }
+
+  toggleEBC(e) {
+    this.httpService.onToggleBeers('ebc_gt', 'ebc_lt', e.value-10, e.value+10).subscribe(
+      (res:any) => {
+        this.beersEBC = res
+      }
+    )
+  }
+
+  toggleMalt(e) {
+
+  }
+
+  toggleHops(e) {
 
   }
 

@@ -1,21 +1,4 @@
 <br>
-<<<<<<< HEAD
-<div>
-    Toggle the ABV
-    <mat-slider style="width:300px;" thumbLabel=true max=14 min=3 step=0.5 tickInterval=1 (change)="toggleABV($event)"></mat-slider>
-</div>
-<div>
-    <mat-slider (change)="toggleIBU($event)"></mat-slider>
-</div>
-<div>
-    <mat-slider (change)="toggleEBC($event)"></mat-slider>
-</div>
-<div>
-    <mat-slider (change)="toggleHops($event)"></mat-slider>
-</div>
-<div>
-    <mat-slider (change)="toggleMalt($event)"></mat-slider>
-=======
 <div class="col-container">
     <div class="col">
         <div>
@@ -51,6 +34,5 @@
     <div class="col" *ngIf="beerClicked">
         <app-single-beer [beer]="currentBeer"></app-single-beer>
     </div>
->>>>>>> fdf1ebed1b3f3dfe34cc8b8ef91096eb61d8b19c
 </div>
 
