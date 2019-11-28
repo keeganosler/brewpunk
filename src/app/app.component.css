@@ -13,8 +13,7 @@
 .main {   
     -ms-flex: 100%; /* IE10 */
     flex: 100%;
-    padding: 20px;
-    padding:40px;
+    padding: 0px;
     font-family:Raleway;
   }
 
