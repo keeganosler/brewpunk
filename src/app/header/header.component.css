@@ -13,3 +13,7 @@ a.nav-link:hover
    color: white;
    text-decoration: none;
 }
+
+h1, h4 {
+   display:inline;
+}
