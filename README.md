@@ -1,4 +1,4 @@
-# Brewpunk
+# Brewpunk - ARCHIVED - new project is BrewpunkBeerfinder
 
 This is a simple frontend project used to practice Angular and Material by playing with the [Brewdog Punk API](https://punkapi.com/documentation/v2).
 
